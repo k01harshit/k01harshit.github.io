@@ -7,8 +7,8 @@
 <meta name="description" content="Harshit Kumar, Data Science (BS-MS) at IISER Thiruvananthapuram. Graph machine learning, neuromorphic learning and deep learning research and engineering.">
 <meta property="og:title" content="Harshit Kumar | Data Scientist & ML Engineer">
 <meta property="og:description" content="Graph ML, spiking neural networks and deep learning. Published in Neural Networks and IEEE ICRM.">
-<meta property="og:image" content="images/profile.jpg">
-<script>try{var t=localStorage.getItem('hk-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta property="og:image" content="images/profile.jpeg">
+<script>var t='paper';try{t=localStorage.getItem('hk-theme3')||'paper'}catch(e){}document.documentElement.dataset.theme=t;</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -26,6 +26,8 @@
 [data-theme="aurora"]{--bg:#05110f;--bg-2:#0a1a17;--surface:rgba(180,255,230,.03);--surface-2:rgba(180,255,230,.06);--border:rgba(180,255,230,.09);--border-2:rgba(180,255,230,.18);--text:#ecfdf8;--muted:#9bb8af;--dim:#5f7a72;--accent:#34d399;--accent-2:#a3e635;--accent-rgb:52,211,153;--accent2-rgb:163,230,53;--on-accent:#04201a;--nav:rgba(5,17,15,.7)}
 [data-theme="ember"]{--bg:#120a08;--bg-2:#1b100c;--surface:rgba(255,200,170,.03);--surface-2:rgba(255,200,170,.06);--border:rgba(255,200,170,.09);--border-2:rgba(255,200,170,.18);--text:#fff5ef;--muted:#c4a597;--dim:#80665b;--accent:#fb7c4b;--accent-2:#fbbf24;--accent-rgb:251,124,75;--accent2-rgb:251,191,36;--on-accent:#2a0e04;--nav:rgba(18,10,8,.7)}
 [data-theme="ocean"]{--bg:#060b16;--bg-2:#0b1322;--surface:rgba(170,210,255,.03);--surface-2:rgba(170,210,255,.06);--border:rgba(170,210,255,.09);--border-2:rgba(170,210,255,.18);--text:#eef5ff;--muted:#9aaccc;--dim:#5d6e8c;--accent:#3b82f6;--accent-2:#22d3ee;--accent-rgb:59,130,246;--accent2-rgb:34,211,238;--nav:rgba(6,11,22,.7)}
+[data-theme="blossom"]{--bg:#fff4f8;--bg-2:#ffe9f1;--surface:rgba(236,72,153,.045);--surface-2:rgba(236,72,153,.09);--border:rgba(190,24,93,.13);--border-2:rgba(190,24,93,.26);--text:#4a0d2a;--muted:#9d4b71;--dim:#c78aa6;--accent:#ec4899;--accent-2:#c026d3;--accent-rgb:236,72,153;--accent2-rgb:192,38,211;--on-accent:#fff;--nav:rgba(255,244,248,.78)}
+[data-theme="blossom"] .blob{opacity:.22}
 [data-theme="mono"]{--bg:#0a0a0a;--bg-2:#121212;--surface:rgba(255,255,255,.03);--surface-2:rgba(255,255,255,.06);--border:rgba(255,255,255,.09);--border-2:rgba(255,255,255,.2);--text:#f5f5f5;--muted:#9a9a9a;--dim:#646464;--accent:#ffffff;--accent-2:#bdbdbd;--accent-rgb:255,255,255;--accent2-rgb:190,190,190;--on-accent:#0a0a0a;--nav:rgba(10,10,10,.72)}
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -54,11 +56,6 @@ body[data-bg="warp"] .blob,body[data-bg="morph"] .blob{opacity:.16}body[data-bg=
 @keyframes grain{0%{transform:translate(0)}50%{transform:translate(-3%,2%)}100%{transform:translate(2%,-3%)}}
 
 /* cursor */
-.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:9998;border-radius:50%;transform:translate(-50%,-50%)}
-.cur-dot{width:6px;height:6px;background:var(--accent)}
-.cur-ring{width:34px;height:34px;border:1px solid rgba(var(--accent-rgb),.55);transition:width .3s var(--ease),height .3s var(--ease),background .3s,border-color .3s}
-.cur-ring.hover{width:58px;height:58px;background:rgba(var(--accent-rgb),.08);border-color:rgba(var(--accent-rgb),.3)}
-@media (hover:none),(max-width:900px){.cur-dot,.cur-ring{display:none}}
 
 #progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:1001}
 
@@ -163,7 +160,8 @@ h2 em .w>span,.hero h1 em .w>span,.contact h2 em{background:linear-gradient(100d
 
 .portrait-wrap{position:relative;aspect-ratio:4/5;max-width:440px;width:100%;justify-self:end}
 .portrait{position:absolute;inset:0;border-radius:28px;overflow:hidden;border:1px solid var(--border-2);background:linear-gradient(160deg,rgba(var(--accent-rgb),.35),rgba(var(--accent2-rgb),.15) 60%,var(--bg-2));transform-style:preserve-3d;transition:transform .5s var(--ease)}
-.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
+.portrait .shine,.portrait .cap{z-index:2}
 .portrait .mono{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(90px,12vw,150px);font-weight:600;letter-spacing:-.06em;color:rgba(255,255,255,.92);mix-blend-mode:overlay}
 [data-theme="paper"] .portrait .mono{color:rgba(0,0,0,.7)}
 .portrait .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.14) 50%,transparent 65%);transform:translateX(-100%);animation:shine 6s var(--ease) infinite 2s}
@@ -455,7 +453,6 @@ footer a:hover{color:var(--text)}
 <div class="grid-bg"></div>
 <canvas id="net"></canvas>
 <div class="grain"></div>
-<div class="cur-dot" id="curDot"></div><div class="cur-ring" id="curRing"></div>
 
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -540,7 +537,7 @@ footer a:hover{color:var(--text)}
   <div class="portrait-wrap reveal" id="portraitWrap">
     <div class="portrait" id="portrait">
       <span class="mono">HK</span>
-      <img src="images/profile.jpg" alt="Portrait of Harshit Kumar" onerror="this.remove()">
+      <img data-base="images/profile" alt="Portrait of Harshit Kumar">
       <div class="shine"></div>
       <div class="cap"><div>Harshit Kumar<small>IISER Thiruvananthapuram</small></div><svg class="i"><use href="#i-pin"/></svg></div>
     </div>
@@ -716,13 +713,13 @@ footer a:hover{color:var(--text)}
   <h2 class="split" data-split>Moments, <em>captured</em>.</h2>
   <p class="lede reveal">Snapshots from research, events, sport and everyday life.</p>
   <div class="gallery" id="galleryGrid">
-    <figure class="g-big reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 1</div><img src="images/gallery-1.jpg" alt="Gallery photo 1"><figcaption>Moment 1</figcaption></figure>
-    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 2</div><img src="images/gallery-2.jpg" alt="Gallery photo 2"><figcaption>Moment 2</figcaption></figure>
-    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 3</div><img src="images/gallery-3.jpg" alt="Gallery photo 3"><figcaption>Moment 3</figcaption></figure>
-    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 4</div><img src="images/gallery-4.jpg" alt="Gallery photo 4"><figcaption>Moment 4</figcaption></figure>
-    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 5</div><img src="images/gallery-5.jpg" alt="Gallery photo 5"><figcaption>Moment 5</figcaption></figure>
-    <figure class="g-wide reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 6</div><img src="images/gallery-6.jpg" alt="Gallery photo 6"><figcaption>Moment 6</figcaption></figure>
-    <figure class="g-wide reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 7</div><img src="images/gallery-7.jpg" alt="Gallery photo 7"><figcaption>Moment 7</figcaption></figure>
+    <figure class="g-big reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 1</div><img data-base="images/gallery-1" alt="Gallery photo 1"><figcaption>Moment 1</figcaption></figure>
+    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 2</div><img data-base="images/gallery-2" alt="Gallery photo 2"><figcaption>Moment 2</figcaption></figure>
+    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 3</div><img data-base="images/gallery-3" alt="Gallery photo 3"><figcaption>Moment 3</figcaption></figure>
+    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 4</div><img data-base="images/gallery-4" alt="Gallery photo 4"><figcaption>Moment 4</figcaption></figure>
+    <figure class=" reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 5</div><img data-base="images/gallery-5" alt="Gallery photo 5"><figcaption>Moment 5</figcaption></figure>
+    <figure class="g-wide reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 6</div><img data-base="images/gallery-6" alt="Gallery photo 6"><figcaption>Moment 6</figcaption></figure>
+    <figure class="g-wide reveal"><div class="ph"><svg class="i"><use href="#i-image"/></svg>Photo 7</div><img data-base="images/gallery-7" alt="Gallery photo 7"><figcaption>Moment 7</figcaption></figure>
   </div>
 </section>
 </main>
@@ -792,7 +789,8 @@ const themes=[
  ["aurora","Aurora","linear-gradient(135deg,#34d399,#a3e635)"],
  ["ember","Ember","linear-gradient(135deg,#fb7c4b,#fbbf24)"],
  ["ocean","Ocean","linear-gradient(135deg,#3b82f6,#22d3ee)"],
- ["mono","Mono","linear-gradient(135deg,#0a0a0a 50%,#f5f5f5 50%)"]
+ ["mono","Mono","linear-gradient(135deg,#0a0a0a 50%,#f5f5f5 50%)"],
+ ["blossom","Blossom","linear-gradient(135deg,#f9a8d4,#ec4899 55%,#c026d3)"]
 ];
 
 /* ============ LOADER ============ */
@@ -811,10 +809,10 @@ let ri=0;function startHero(){bgT0=performance.now();if(BG[bgMode].intro)BG[bgMo
 
 /* ============ BACKGROUND ENGINE (6 modes) ============ */
 const cv=$('#net'),cx=cv.getContext('2d');
-let W,H,DPR=1,mouse={x:-9e3,y:-9e3},C1='139,124,255',C2='94,234,212',bgMode='morph',bgT0=performance.now();
+let W,H,DPR=1,mouse={x:-9e3,y:-9e3},C1='139,124,255',C2='94,234,212',bgMode='waves',bgT0=performance.now();
 function readColors(){const s=getComputedStyle(root);C1=s.getPropertyValue('--accent-rgb').trim()||C1;C2=s.getPropertyValue('--accent2-rgb').trim()||C2}
 const rnd=(a,b)=>a+Math.random()*(b-a),small=()=>innerWidth<720,TAU=Math.PI*2;
-const bgModes=[["morph","Morph","3D shape-shifter","sparkle"],["warp","Hyperspace","Warp-speed stars","zap"],["flow","Flow field","Silky currents","wave"],["waves","Waves","3D dot terrain","layers"],["network","Network","Neural graph","graph"],["minimal","Minimal","Gradient only","target"]];
+const bgModes=[["warp","Hyperspace","Warp-speed stars","zap"],["morph","Morph","3D shape-shifter","sparkle"],["flow","Flow field","Silky currents","wave"],["waves","Waves","3D dot terrain","layers"],["network","Network","Neural graph","graph"],["minimal","Minimal","Gradient only","target"]];
 const BG={};
 
 /* --- Morph: thousands of particles that assemble into 3D shapes --- */
@@ -909,22 +907,20 @@ BG.minimal={init(){cx.clearRect(0,0,W,H)},draw(){}};
 
 function size(){DPR=Math.min(devicePixelRatio||1,2);W=cv.width=innerWidth*DPR;H=cv.height=innerHeight*DPR;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';BG[bgMode].init()}
 let rzT;addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(size,150)});
-function setBg(id,say){bgMode=id;try{localStorage.setItem('hk-bg',id)}catch(e){}cx.globalCompositeOperation='source-over';cx.globalAlpha=1;cx.clearRect(0,0,W,H);BG[id].init();if(say&&BG[id].intro)BG[id].intro();
+function setBg(id,say){bgMode=id;try{localStorage.setItem('hk-bg3',id)}catch(e){}cx.globalCompositeOperation='source-over';cx.globalAlpha=1;cx.clearRect(0,0,W,H);BG[id].init();if(say&&BG[id].intro)BG[id].intro();
  document.body.dataset.bg=id;$$('.bopt').forEach(o=>o.classList.toggle('on',o.dataset.bg===id));if(say)toast('Background: '+bgModes.find(b=>b[0]===id)[1]+(id==='minimal'?'':'. Click empty space for a surprise'),2600)}
 size();
 let bgVis=1;function fadeBg(){bgVis=Math.max(0,1-scrollY/(innerHeight*.75));cv.style.opacity=bgVis;cv.style.visibility=bgVis?'visible':'hidden'}fadeBg();
 let lastF=0;(function loop(t){if(!document.hidden&&bgVis>0&&t-lastF>15){lastF=t;BG[bgMode].draw(t)}requestAnimationFrame(loop)})(0);
 document.addEventListener('click',e=>{if(e.target.closest('a,button,input,canvas:not(#net),.card,nav,.chat,.modal,.cmdk,.lb,.theme-pop'))return;const b=BG[bgMode].burst;if(b)b.call(BG[bgMode],e.clientX*DPR,e.clientY*DPR)});
 
-/* ============ CURSOR + SPOTLIGHT + MAGNET ============ */
+/* ============ SPOTLIGHT + MAGNET ============ */
 let cxm=innerWidth/2,cym=innerHeight/2,rx=cxm,ry=cym;
 addEventListener('pointermove',e=>{cxm=e.clientX;cym=e.clientY;mouse.x=e.clientX*DPR;mouse.y=e.clientY*DPR;
  const c=e.target.closest&&e.target.closest('.card');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')}});
-if(fine&&!reduce){const dot=$('#curDot'),ring=$('#curRing');(function loop(){rx+=(cxm-rx)*.18;ry+=(cym-ry)*.18;dot.style.transform=`translate(${cxm-3}px,${cym-3}px)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
-  document.addEventListener('pointerover',e=>{ring.classList.toggle('hover',!!e.target.closest('a,button,.proj,input,canvas'))});
+if(fine&&!reduce){
  $$('.mag').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.22}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener('pointerleave',()=>b.style.transform='')});
  const pw=$('#portraitWrap'),pt=$('#portrait');pw.addEventListener('pointermove',e=>{const r=pw.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;pt.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`});pw.addEventListener('pointerleave',()=>pt.style.transform='')}
-else{$('#curDot').remove();$('#curRing').remove()}
 
 /* ============ REVEAL / COUNT / SCROLL ============ */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('[data-count]').forEach(count);io.unobserve(e.target)}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
@@ -965,8 +961,12 @@ $('#paperList').innerHTML=papers.map(p=>`<div class="paper reveal"><div class="v
  <div class="read">${p.l.length?p.l.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} ${ico('up')}</a>`).join(''):'<span class="na">Link after review</span>'}</div></div>`).join('');
 
 /* ============ GALLERY + LIGHTBOX ============ */
-(function(){$$('#galleryGrid figure').forEach(f=>{const img=f.querySelector('img');const ok=()=>f.classList.add('loaded');const bad=()=>img.remove();
-  if(img.complete){img.naturalWidth?ok():bad()}else{img.addEventListener('load',ok);img.addEventListener('error',bad)}});
+/* finds images/NAME with any common extension (.jpeg, .jpg, .png, .webp) */
+function loadAny(img,ok,bad){const ex=['jpeg','jpg','png','webp','JPG','JPEG','PNG'];let i=0;const next=()=>{if(i>=ex.length){bad();return}img.src=img.dataset.base+'.'+ex[i++]};img.onload=()=>ok();img.onerror=next;next()}
+(function(){const pimg=document.querySelector('#portrait img');if(pimg)loadAny(pimg,()=>{},()=>pimg.remove());})();
+(function(){const figs=$$('#galleryGrid figure');let pending=figs.length,any=false;const empty=[];
+ const done=()=>{if(--pending)return;if(any)empty.forEach(f=>f.remove())};
+ figs.forEach(f=>{const img=f.querySelector('img');loadAny(img,()=>{f.classList.add('loaded');any=true;done()},()=>{img.remove();empty.push(f);done()})});
  let li=0;const lb=$('#lb'),loaded=()=>$$('#galleryGrid figure.loaded');
  function show(i){const ls=loaded();if(!ls.length)return;li=(i+ls.length)%ls.length;const f=ls[li];$('#lbImg').src=f.querySelector('img').src;$('#lbCap').textContent=f.querySelector('figcaption').textContent;lb.classList.add('open')}
  $('#galleryGrid').addEventListener('click',e=>{const f=e.target.closest('figure.loaded');if(f)show(loaded().indexOf(f))});
@@ -974,7 +974,7 @@ $('#paperList').innerHTML=papers.map(p=>`<div class="paper reveal"><div class="v
  addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='ArrowRight')show(li+1);if(e.key==='ArrowLeft')show(li-1);if(e.key==='Escape')lb.classList.remove('open')})})();
 
 /* ============ THEMES ============ */
-function setTheme(id,say){root.dataset.theme=id;try{localStorage.setItem('hk-theme',id)}catch(e){}readColors();$$('.topt').forEach(o=>o.classList.toggle('on',o.dataset.t===id));
+function setTheme(id,say){root.dataset.theme=id;try{localStorage.setItem('hk-theme3',id)}catch(e){}readColors();$$('.topt').forEach(o=>o.classList.toggle('on',o.dataset.t===id));
  if(say)toast('Theme: '+themes.find(t=>t[0]===id)[1]);drawKnn();}
 $('#themeGrid').innerHTML=themes.map(t=>`<button class="topt" data-t="${t[0]}"><span class="sw" style="background:${t[2]}"></span>${t[1]}</button>`).join('');
 $$('.topt').forEach(o=>o.onclick=()=>setTheme(o.dataset.t,true));
@@ -983,7 +983,7 @@ $('#themePop').addEventListener('click',e=>e.stopPropagation());
 $('#bgGrid').innerHTML=bgModes.map(b=>`<button class="bopt" data-bg="${b[0]}"><span class="bic">${ico(b[3])}</span><span>${b[1]}<small>${b[2]}</small></span></button>`).join('');
 $$('.bopt').forEach(o=>o.onclick=()=>setBg(o.dataset.bg,true));
 const hovers=[["spotlight","Spotlight"],["tilt","3D tilt"],["lift","Lift"],["neon","Neon"],["none","None"]];
-function setHover(id,say){root.dataset.hover=id;try{localStorage.setItem('hk-hover',id)}catch(e){}$$('.hchip').forEach(o=>o.classList.toggle('on',o.dataset.h===id));if(say)toast('Hover effect: '+hovers.find(x=>x[0]===id)[1]+'. Try hovering a card')}
+function setHover(id,say){root.dataset.hover=id;try{localStorage.setItem('hk-hover3',id)}catch(e){}$$('.hchip').forEach(o=>o.classList.toggle('on',o.dataset.h===id));if(say)toast('Hover effect: '+hovers.find(x=>x[0]===id)[1]+'. Try hovering a card')}
 $('#hoverGrid').innerHTML=hovers.map(x=>`<button class="hchip" data-h="${x[0]}">${x[1]}</button>`).join('');
 $$('.hchip').forEach(o=>o.onclick=()=>setHover(o.dataset.h,true));
 document.addEventListener('click',e=>{if(!e.target.closest('.theme-wrap'))$('#themePop').classList.remove('open')});
@@ -1117,10 +1117,10 @@ addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()===
  if($('#cmdk').classList.contains('open')&&fl.length){if(e.key==='ArrowDown'){sel=(sel+1)%fl.length;renderCmd();e.preventDefault()}if(e.key==='ArrowUp'){sel=(sel-1+fl.length)%fl.length;renderCmd();e.preventDefault()}if(e.key==='Enter')run(sel)}});
 
 /* ============ INIT ============ */
-let saved='dark';try{saved=localStorage.getItem('hk-theme')||'dark'}catch(e){}if(!themes.some(t=>t[0]===saved))saved='dark';setTheme(saved);
+let saved='paper';try{saved=localStorage.getItem('hk-theme3')||'paper'}catch(e){}if(!themes.some(t=>t[0]===saved))saved='paper';setTheme(saved);
 const getLS=(k,d)=>{try{return localStorage.getItem(k)||d}catch(e){return d}};
-let sbg=getLS('hk-bg',reduce?'minimal':'morph');if(!BG[sbg])sbg='morph';setBg(sbg);
-let shv=getLS('hk-hover','spotlight');if(!hovers.some(x=>x[0]===shv))shv='spotlight';setHover(shv);
+let sbg=getLS('hk-bg3',reduce?'minimal':'waves');if(!BG[sbg])sbg='waves';setBg(sbg);
+let shv=getLS('hk-hover3','tilt');if(!hovers.some(x=>x[0]===shv))shv='tilt';setHover(shv);
 if(getLS('hk-tip','')){const d=$('#pdot');d&&d.remove()}
 observe();
 /* eyebrow scramble */
