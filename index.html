@@ -1128,5 +1128,6 @@ const scr=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){scram
 function scramble(el){const fin=el.textContent,ch='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/<>#*';let f=0;const tot=fin.length+14;const it=setInterval(()=>{el.textContent=fin.split('').map((c,i)=>i<f-12||c===' '?c:ch[Math.random()*ch.length|0]).join('');if(++f>tot){clearInterval(it);el.textContent=fin}},32)}
 if(!reduce)$$('.eyebrow').forEach(e=>scr.observe(e));
 </script>
+  <!-- Trigger fresh GitHub Pages deployment -->
 </body>
 </html>
